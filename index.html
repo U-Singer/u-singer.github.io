@@ -1,0 +1,576 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>U-Singer Demo Page</title>
+    </head>
+    <body>
+        <article>
+            <header>
+                <h1>U-Singer: Multi-Singer SInging Voice Synthesizer that Controls Emotional
+                    Intensity</h1>
+            </header>
+        </article>
+        <div>
+            <h3>Authors</h3>
+            Anonymous Authors
+        </div>
+        <div>
+            <h2>Abstract</h2>
+            We propose U-Singer, the first multi-singer emotional singing voice synthesizer
+            that expresses various levels of emotional intensity. During synthesizing
+            singing voices according to the lyrics, pitch, and duration of the music score,
+            U-Singer reflects singer characteristics and emotional intensity by adding
+            variances in pitch, energy, and phoneme duration according to singer ID and
+            emotional intensity. Representing all attributes by conditional residual
+            embeddings in a single unified embedding space, U-Singer controls mutually
+            correlated style attributes, minimizing interference. Additionally, we apply
+            emotion embedding interpolation and extrapolation techniques that lead the model
+            to learn a linear embedding space and allow the model to express emotional
+            intensity levels not included in the training data. In experiments, U-Singer
+            synthesized high-fidelity singing voices reflecting the singer ID and emotional
+            intensity. The visualization of the unified embedding space exhibits that
+            U-singer estimates the correct variations in pitch and energy highly correlated
+            with the singer ID and emotional intensity level.
+        </div>
+        <br>
+        <div>
+            <h2>Model Structure</h2>
+            <table style="text-align:center">
+                <tr>
+                    <th><img src="./figures/1-1_v3.png" width="600">
+                    </th>
+                    <th><img src="./figures/1-2_v4.png" width="600">
+                    </th>
+                    <th><img src="./figures/1-3.png" width="600">
+                    </th>
+                </tr>
+                <tr>
+                    <th>(a) Overall Architecture</th>
+                    <th>(b) Variance Adaptor</th>
+                    <th>(c) ASPP-Transformer</th>
+                </tr>
+            </table>
+            <br>
+            Figure illustrates the structure of U-Singer. It takes lyrics (phoneme
+            sequence), note pitch, and note duration as input. First, it retrieves the
+            low-level embeddings of the phoneme and note pitch from the embedding tables,
+            respectively.<br>
+            We combine them by concatenation followed by a linear layer. The linear layer
+            provides a more general form and exhibited higher fidelity than element-wise
+            addition in our preliminary experiments. The lyric-pitch encoder converts the
+            combined embedding into a high-level representation and transmits it to the
+            variance adapter.<br>
+        </div>
+
+        <h1>Audio Samples</h1>
+        <h2>Part 1. Singer Similarity
+        </h2>
+
+        U-Singer can generate audio samples containing distinguishable singer
+        characteristic.
+        <br>
+
+        <table style="text-align:center">
+            <tr>
+                <th></th>
+                <th>F0</th>
+                <th>F1</th>
+                <th>M1</th>
+                <th>F2</th>
+                <th>M2</th>
+            </tr>
+            <tr>
+                <td>Happy sample 1 mel</td>
+                <td><img src="./samples/singer_similarity/mel_happy_1_F0.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_happy_1_F1.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_happy_1_M1.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_happy_1_F2.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_happy_1_M2.png"></td>
+            </tr>
+            <tr>
+                <td>Happy sample 1 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/happy_1_F0.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/happy_1_F1.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/happy_1_M1.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/happy_1_F2.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/happy_1_M2.wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>Happy sample 2 mel</td>
+                <td><img src="./samples/singer_similarity/mel_happy_2_F0.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_happy_2_F1.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_happy_2_M1.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_happy_2_F2.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_happy_2_M2.png"></td>
+            </tr>
+            <tr>
+                <td>Happy sample 2 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/happy_2_F0.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/happy_2_F1.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/happy_2_M1.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/happy_2_F2.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/happy_2_M2.wav">
+                    </audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Sad sample 1 mel</td>
+                <td><img src="./samples/singer_similarity/mel_sad_1_F0.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_sad_1_F1.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_sad_1_M1.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_sad_1_F2.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_sad_1_M2.png"></td>
+            </tr>
+            <tr>
+                <td>Sad sample 1 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/sad_1_F0.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/sad_1_F1.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/sad_1_M1.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/sad_1_F2.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/sad_1_M2.wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>Sad sample 2 mel</td>
+                <td><img src="./samples/singer_similarity/mel_sad_2_F0.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_sad_2_F1.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_sad_2_M1.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_sad_2_F2.png"></td>
+                <td><img src="./samples/singer_simliarity/mel_sad_2_M2.png"></td>
+            </tr>
+            <tr>
+                <td>Sad sample 2 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/sad_2_F0.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/sad_2_F1.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/sad_2_M1.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/sad_2_F2.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_similarity/sad_2_M2.wav">
+                    </audio>
+                </td>
+            </tr>
+        </table>
+
+        <br><br>
+
+        <h2>Part 2. Emotion Control</h2>
+
+        U-Singer can generate audio samples with different emotional intensities. Here are few samples with emotion of happy and sad, respectively. <br>
+        With our emotion embedding interpolation and extrapolation, we can even generate emotional intensity which are not in the dataset.
+        <table style="text-align:center">
+            <tr>
+                <th>Female</th>
+                <th>Neutral</th>
+                <th>Happy0.3</th>
+                <th>Happy0.7</th>
+                <th>Happy1.0</th>
+                <th>Happy1.3 (Extrapolation)</th>
+            </tr>
+            <tr>
+                <td>happy sample 1 mel</td>
+                <td><img src="./samples/emotion_control/mel_F_happy_1_neu.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_happy_1_3.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_happy_1_7.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_happy_1_10.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_happy_1_13.png"></td>
+            </tr>
+            <tr>
+                <td>happy sample 1 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_happy_1_neu.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_happy_1_3.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_happy_1_7.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_happy_1_10.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_happy_1_13.wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>happy sample 2 mel</td>
+                <td><img src="./samples/emotion_control/mel_F_happy_2_neu.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_happy_2_3.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_happy_2_7.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_happy_2_10.png"></td>
+            </tr>
+            <tr>
+                <td>happy sample 2 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_happy_2_neu.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_happy_2_3.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_happy_2_7.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_happy_2_10.wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <th>Male</th>
+                <th>Neutral</th>
+                <th>Happy0.3</th>
+                <th>Happy0.7</th>
+                <th>Happy1.0</th>
+                <th>Happy1.3 (Extrapolation)</th>
+            </tr>
+            <tr>
+                <td>happy sample 1 mel</td>
+                <td><img src="./samples/emotion_control/mel_M_happy_1_neu.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_happy_1_3.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_happy_1_7.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_happy_1_10.png"></td>
+            </tr>
+            <tr>
+                <td>happy sample 1 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_happy_1_neu.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_happy_1_3.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_happy_1_7.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_happy_1_10.wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>happy sample 2 mel</td>
+                <td><img src="./samples/emotion_control/mel_M_happy_2_neu.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_happy_2_3.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_happy_2_7.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_happy_2_10.png"></td>
+            </tr>
+            <tr>
+                <td>happy sample 2 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_happy_2_neu.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_happy_2_3.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_happy_2_7.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_happy_2_10.wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <th>Female</th>
+                <th>Neutral</th>
+                <th>Sad0.3</th>
+                <th>Sad0.7</th>
+                <th>Sad1.0</th>
+                <th>Sad1.3 (Extrapolation)</th>
+            </tr>
+            <tr>
+                <td>sad sample 1 mel</td>
+                <td><img src="./samples/emotion_control/mel_F_sad_1_neu.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_sad_1_3.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_sad_1_7.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_sad_1_10.png"></td>
+            </tr>
+            <tr>
+                <td>sad sample 1 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_sad_1_neu.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_sad_1_3.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_sad_1_7.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_sad_1_10.wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>sad sample 2 mel</td>
+                <td><img src="./samples/emotion_control/mel_F_sad_2_neu.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_sad_2_3.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_sad_2_7.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_sad_2_10.png"></td>
+                <td><img src="./samples/emotion_control/mel_F_sad_2_13.png"></td>
+            </tr>
+            <tr>
+                <td>sad sample 2 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_sad_2_neu.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_sad_2_3.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_sad_2_7.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_sad_2_10.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/F_sad_2_13.wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <th>Male</th>
+                <th>Neutral</th>
+                <th>Sad0.3</th>
+                <th>Sad0.7</th>
+                <th>Sad1.0</th>
+                <th>Sad1.3 (Extrapolation)</th>
+            </tr>
+            <tr>
+                <td>sad sample 1 mel</td>
+                <td><img src="./samples/emotion_control/mel_M_sad_1_neu.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_sad_1_3.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_sad_1_7.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_sad_1_10.png"></td>
+            </tr>
+            <tr>
+                <td>sad sample 1 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_sad_1_neu.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_sad_1_3.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_sad_1_7.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_sad_1_10.wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <td>sad sample 2 mel</td>
+                <td><img src="./samples/emotion_control/mel_M_sad_2_neu.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_sad_2_3.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_sad_2_7.png"></td>
+                <td><img src="./samples/emotion_control/mel_M_sad_2_10.png"></td>
+            </tr>
+            <tr>
+                <td>sad sample 2 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_sad_2_neu.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_sad_2_3.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_sad_2_7.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/emotion_control/M_sad_2_10.wav">
+                    </audio>
+                </td>
+            </tr>
+        </table>
+        
+        <br><br>
+        <h1>Visualization Results</h1>
+        
+        <h2>Part 1. Singer and Emotion Embeddings</h2>
+        <table style="text-align:center">
+            <tr>
+                <th><img src="./figures/singer_emb_pca_v2.png" width=500> </th>
+                <th><img src="./figures/emotion_emb_pca_v3.png" width=500> </th>
+            </tr>
+            <tr>
+                <th>(a) Singer Embedding</th>
+                <th>(b) Emotion Embedding</th>
+            </tr>
+        </table>
+        <br>
+        Visualization of U-Singer's residual embedding. We visualized Residual embeddings of singer and emotion into 2-dimensional space using principle component analysis (PCA).
+        
+        <h2>Part 2. Pitch and Energy Embeddings</h2>
+        <h3>1. Pitch embeddings</h3>
+        <table style="text-align:center">
+            <tr>
+                <th><img src="./figures/pitch_baseline_happy.png" width=400> </th>
+                <th><img src="./figures/pitch_baseline_sad.png" width=400> </th>
+                <th><img src="./figures/pitch_usinger_happy.png" width=400> </th>
+                <th><img src="./figures/pitch_usinger_happy.png" width=400> </th>
+            </tr>
+            <tr>
+                <th>(a) Pitch Embeddings of baseline (Happy)</th>
+                <th>(b) Pitch Embeddings of baseline (Sad)</th>
+                <th>(c) Pitch Embeddings of U-Singer (Happy)</th>
+                <th>(d) Pitch Embeddings of U-Singer (Sad)</th>
+            </tr>
+        </table>
+        <br>
+        Visualization of pitch embeddings obtained by conventional encoder of EXT.FS2(a,b) and residual encoder of U-Singer(c,d).
+        
+        <h3>2. Energy embeddings</h3>
+        <table style="text-align:center">
+            <tr>
+                <th><img src="./figures/energy_baseline_happy.png" width=400> </th>
+                <th><img src="./figures/energy_baseline_sad.png" width=400> </th>
+                <th><img src="./figures/energy_usinger_happy.png" width=400> </th>
+                <th><img src="./figures/energy_usinger_happy.png" width=400> </th>
+            </tr>
+            <tr>
+                <th>(a) Energy Embeddings of baseline (Happy)</th>
+                <th>(b) Energy Embeddings of baseline (Sad)</th>
+                <th>(c) Energy Embeddings of U-Singer (Happy)</th>
+                <th>(d) Energy Embeddings of U-Singer (Sad)</th>
+            </tr>
+        </table>
+        <br>
+        Visualization of energy embeddings obtained by conventional encoder of EXT.FS2(a,b) and residual encoder of U-Singer(c,d).
+    </body>
+</html>
