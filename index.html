@@ -529,12 +529,12 @@
                 <th><img src="./figures/emotion_emb_pca_v3.png" width=500> </th>
             </tr>
             <tr>
-                <th>(a) Singer Embedding</th>
-                <th>(b) Emotion Embedding</th>
+                <th>(a) Singer Embeddings</th>
+                <th>(b) Emotion Embeddings</th>
             </tr>
         </table>
         <br>
-        Visualization of U-Singer's residual embedding. We visualized Residual embeddings of singer and emotion into 2-dimensional space using principle component analysis (PCA).
+        Visualization of U-Singer's residual embeddings. We visualized Residual embeddings of singer and emotion into 2-dimensional space using principle component analysis (PCA).
         
         <h2>Part 2. Pitch and Energy Embeddings</h2>
         <h3>1. Pitch embeddings</h3>
@@ -572,5 +572,19 @@
         </table>
         <br>
         Visualization of energy embeddings obtained by conventional encoder of EXT.FS2(a,b) and residual encoder of U-Singer(c,d).
+
+        <h2>Part 3. Full joint embeddings</h2>
+        <table style="text-align:center">
+            <tr>
+                <th><img src="./figures/full_joint_usinger_singer.png" width=500> </th>
+                <th><img src="./figures/full_joint_usinger_emotion.png" width=500> </th>
+            </tr>
+            <tr>
+                <th>(a) Full joint embeddings colored by singer</th>
+                <th>(b) Full joint embeddings coloered by emotional intensities</th>
+            </tr>
+        </table>
+        <br>
+        Visualization of U-Singer's full joint embeddings (a) and (b) are colored by singer and emotion, respectively. Our full joint embeddings preserve useful style attributes so that can help decoder to generate better audio samples.
     </body>
 </html>
