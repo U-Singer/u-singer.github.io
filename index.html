@@ -231,7 +231,6 @@
         <h2>Part 2. Emotion Control</h2>
 
         U-Singer can generate audio samples with different emotional intensities. Here are few samples with emotion of happy and sad, respectively. <br>
-        With our emotion embedding interpolation and extrapolation, we can even generate emotional intensity which are not in the dataset.
         <table style="text-align:center">
             <tr>
                 <th>Female</th>
@@ -239,7 +238,6 @@
                 <th>Happy0.3</th>
                 <th>Happy0.7</th>
                 <th>Happy1.0</th>
-                <th>Happy1.3 (Extrapolation)</th>
             </tr>
             <tr>
                 <td>happy sample 1 mel</td>
@@ -247,7 +245,6 @@
                 <td><img src="./samples/emotion_control/mel_F_happy_1_3.png"></td>
                 <td><img src="./samples/emotion_control/mel_F_happy_1_7.png"></td>
                 <td><img src="./samples/emotion_control/mel_F_happy_1_10.png"></td>
-                <td><img src="./samples/emotion_control/mel_F_happy_1_13.png"></td>
             </tr>
             <tr>
                 <td>happy sample 1 wav</td>
@@ -269,11 +266,6 @@
                 <td>
                     <audio controls="controls">
                         <source src="./samples/emotion_control/F_happy_1_10.wav">
-                    </audio>
-                </td>
-                <td>
-                    <audio controls="controls">
-                        <source src="./samples/emotion_control/F_happy_1_13.wav">
                     </audio>
                 </td>
             </tr>
@@ -313,7 +305,6 @@
                 <th>Happy0.3</th>
                 <th>Happy0.7</th>
                 <th>Happy1.0</th>
-                <th>Happy1.3 (Extrapolation)</th>
             </tr>
             <tr>
                 <td>happy sample 1 mel</td>
@@ -381,7 +372,6 @@
                 <th>Sad0.3</th>
                 <th>Sad0.7</th>
                 <th>Sad1.0</th>
-                <th>Sad1.3 (Extrapolation)</th>
             </tr>
             <tr>
                 <td>sad sample 1 mel</td>
@@ -419,7 +409,6 @@
                 <td><img src="./samples/emotion_control/mel_F_sad_2_3.png"></td>
                 <td><img src="./samples/emotion_control/mel_F_sad_2_7.png"></td>
                 <td><img src="./samples/emotion_control/mel_F_sad_2_10.png"></td>
-                <td><img src="./samples/emotion_control/mel_F_sad_2_13.png"></td>
             </tr>
             <tr>
                 <td>sad sample 2 wav</td>
@@ -443,11 +432,6 @@
                         <source src="./samples/emotion_control/F_sad_2_10.wav">
                     </audio>
                 </td>
-                <td>
-                    <audio controls="controls">
-                        <source src="./samples/emotion_control/F_sad_2_13.wav">
-                    </audio>
-                </td>
             </tr>
             <tr>
                 <th>Male</th>
@@ -455,7 +439,6 @@
                 <th>Sad0.3</th>
                 <th>Sad0.7</th>
                 <th>Sad1.0</th>
-                <th>Sad1.3 (Extrapolation)</th>
             </tr>
             <tr>
                 <td>sad sample 1 mel</td>
@@ -514,6 +497,131 @@
                 <td>
                     <audio controls="controls">
                         <source src="./samples/emotion_control/M_sad_2_10.wav">
+                    </audio>
+                </td>
+            </tr>
+        </table>
+
+        <h2>Part 3. Emotion embedding interpolation and extrapolation
+        </h2>
+
+        U-Singer can even generate emotional intensity which are not in the dataset.
+        <br>
+
+        <table style="text-align:center">
+            <tr>
+                <th></th>
+                <th>Neutral</th>
+                <th>Sad0.3</th>
+                <th>Sad0.5(Interpolation)</th>
+                <th>Sad0.7</th>
+                <th>Sad1.0</th>
+                <th>Sad1.3(Extrapolation)</th>
+                <th>Sad1.7(Extrapolation)</th>
+            </tr>
+            <tr>
+                <td>sad sample 1 mel</td>
+                <td><img src="./samples/eeie/mel_F_sad_1_neu.png"></td>
+                <td><img src="./samples/eeie/mel_F_sad_1_3.png"></td>
+                <td><img src="./samples/eeie/mel_F_sad_1_5.png"></td>
+                <td><img src="./samples/eeie/mel_F_sad_1_7.png"></td>
+                <td><img src="./samples/eeie/mel_F_sad_1_10.png"></td>
+                <td><img src="./samples/eeie/mel_F_sad_1_13.png"></td>
+                <td><img src="./samples/eeie/mel_F_sad_1_17.png"></td>
+            </tr>
+            <tr>
+                <td>sad sample 1 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/F_sad_1_neu.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/F_sad_1_3.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/F_sad_1_5.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/F_sad_1_7.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/F_sad_1_10.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/F_sad_1_13.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/F_sad_1_17.wav">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Neutral</th>
+                <th>Sad0.3</th>
+                <th>Sad0.5(Interpolation)</th>
+                <th>Sad0.7</th>
+                <th>Sad1.0</th>
+                <th>Sad1.3(Extrapolation)</th>
+                <th>Sad1.7(Extrapolation)</th>
+            </tr>
+            <tr>
+                <td>sad sample 2 mel</td>
+                <td><img src="./samples/eeie/mel_M_sad_1_neu.png"></td>
+                <td><img src="./samples/eeie/mel_M_sad_1_3.png"></td>
+                <td><img src="./samples/eeie/mel_M_sad_1_5.png"></td>
+                <td><img src="./samples/eeie/mel_M_sad_1_7.png"></td>
+                <td><img src="./samples/eeie/mel_M_sad_1_10.png"></td>
+                <td><img src="./samples/eeie/mel_M_sad_1_13.png"></td>
+                <td><img src="./samples/eeie/mel_M_sad_1_17.png"></td>
+            </tr>
+            <tr>
+                <td>sad sample 2 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/M_sad_1_neu.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/M_sad_1_3.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/M_sad_1_5.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/M_sad_1_7.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/M_sad_1_10.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/M_sad_1_13.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/eeie/M_sad_1_17.wav">
                     </audio>
                 </td>
             </tr>
