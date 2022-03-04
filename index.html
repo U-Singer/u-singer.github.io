@@ -651,14 +651,24 @@
         <table style="text-align:center">
             <tr>
                 <th></th>
-                <th>F0(CSD Singer)</th>
-                <th>F1(Professional Female Singer)</th>
-                <th>M1(Professional Male Singer)</th>
-                <th>F2(Amateur Female Singer)</th>
-                <th>M2(Amateur Male Singer)</th>
+                <th>Amateur Female Singer(6.01 hours)</th>
+                <th>Amateur Male Singer(5.22 hours)</th>
+                <th>CSD Singer(2.12 hours)</th>
+                <th>Professional Female Singer(small amount data-0.57 hours-)</th>
+                <th>Professional Male Singer(small amount data-0.52 hours-)</th>
             </tr>
             <tr>
                 <td>Sample 1 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_control/happy_1_F2.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_control/happy_1_M2.wav">
+                    </audio>
+                </td>
                 <td>
                     <audio controls="controls">
                         <source src="./samples/singer_control/happy_1_F0.wav">
@@ -674,19 +684,19 @@
                         <source src="./samples/singer_control/happy_1_M1.wav">
                     </audio>
                 </td>
-                <td>
-                    <audio controls="controls">
-                        <source src="./samples/singer_control/happy_1_F2.wav">
-                    </audio>
-                </td>
-                <td>
-                    <audio controls="controls">
-                        <source src="./samples/singer_control/happy_1_M2.wav">
-                    </audio>
-                </td>
             </tr>
             <tr>
                 <td>Sample 2 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_control/happy_2_F2.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_control/happy_2_M2.wav">
+                    </audio>
+                </td>
                 <td>
                     <audio controls="controls">
                         <source src="./samples/singer_control/happy_2_F0.wav">
@@ -702,19 +712,19 @@
                         <source src="./samples/singer_control/happy_2_M1.wav">
                     </audio>
                 </td>
-                <td>
-                    <audio controls="controls">
-                        <source src="./samples/singer_control/happy_2_F2.wav">
-                    </audio>
-                </td>
-                <td>
-                    <audio controls="controls">
-                        <source src="./samples/singer_control/happy_2_M2.wav">
-                    </audio>
-                </td>
             </tr>
             <tr>
                 <td>Sample 3 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_control/sad_1_F2.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_control/sad_1_M2.wav">
+                    </audio>
+                </td>
                 <td>
                     <audio controls="controls">
                         <source src="./samples/singer_control/sad_1_F0.wav">
@@ -730,19 +740,19 @@
                         <source src="./samples/singer_control/sad_1_M1.wav">
                     </audio>
                 </td>
-                <td>
-                    <audio controls="controls">
-                        <source src="./samples/singer_control/sad_1_F2.wav">
-                    </audio>
-                </td>
-                <td>
-                    <audio controls="controls">
-                        <source src="./samples/singer_control/sad_1_M2.wav">
-                    </audio>
-                </td>
             </tr>
             <tr>
                 <td>Sample 4 wav</td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_control/sad_2_F2.wav">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls="controls">
+                        <source src="./samples/singer_control/sad_2_M2.wav">
+                    </audio>
+                </td>
                 <td>
                     <audio controls="controls">
                         <source src="./samples/singer_control/sad_2_F0.wav">
@@ -756,16 +766,6 @@
                 <td>
                     <audio controls="controls">
                         <source src="./samples/singer_control/sad_2_M1.wav">
-                    </audio>
-                </td>
-                <td>
-                    <audio controls="controls">
-                        <source src="./samples/singer_control/sad_2_F2.wav">
-                    </audio>
-                </td>
-                <td>
-                    <audio controls="controls">
-                        <source src="./samples/singer_control/sad_2_M2.wav">
                     </audio>
                 </td>
             </tr>
@@ -787,6 +787,7 @@
         </table>
         <br>
         Visualization of U-Singer's residual embeddings. We visualized Residual embeddings of singer and emotion into 2-dimensional space using principle component analysis (PCA). (The red and blue lines in the Figure b were manually drawn for the convenience of the reader.)
+        <br>(F0: CSD Singer, F1: Professional Female Singer, M1: Professional Male Singer, F2: Amateur Female Singer, M2: Amateur Male Singer)
         
         <h2>Part 2. Pitch and Energy Embeddings</h2>
         <h3>1. Pitch embeddings</h3>
